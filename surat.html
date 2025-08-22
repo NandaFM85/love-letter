@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Leona, Cinta Hatiku</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe4f0 25%, #f8e8ff 50%, #e8f4ff 75%, #f0f8ff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Floating Lotus Petals Animation */
+        .petal {
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background: linear-gradient(45deg, #ff69b4, #ffc0cb);
+            border-radius: 50% 10px 50% 10px;
+            opacity: 0.7;
+            animation: float 15s infinite linear;
+            z-index: 1;
+        }
+        
+        .petal:nth-child(1) { top: -50px; left: 10%; animation-delay: 0s; }
+        .petal:nth-child(2) { top: -50px; left: 25%; animation-delay: 3s; background: linear-gradient(45deg, #ff1493, #ffb6c1); }
+        .petal:nth-child(3) { top: -50px; left: 40%; animation-delay: 6s; background: linear-gradient(45deg, #ff6347, #ffd1dc); }
+        .petal:nth-child(4) { top: -50px; left: 55%; animation-delay: 9s; background: linear-gradient(45deg, #ff69b4, #ffe4e1); }
+        .petal:nth-child(5) { top: -50px; left: 70%; animation-delay: 12s; background: linear-gradient(45deg, #da70d6, #f0e6ff); }
+        .petal:nth-child(6) { top: -50px; left: 85%; animation-delay: 15s; background: linear-gradient(45deg, #ff1493, #e6e6fa); }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 2s ease-out;
+        }
+        
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #8b1538;
+            text-shadow: 2px 2px 4px rgba(139, 21, 56, 0.3);
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #c2185b;
+            font-style: italic;
+            opacity: 0.8;
+        }
+        
+        /* Lotus Decoration */
+        .lotus-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        .lotus {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform: rotate(45deg);
+        }
+        
+        .lotus-petal {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            border-radius: 50% 10px 50% 10px;
+            opacity: 0.8;
+        }
+        
+        .lotus-petal:nth-child(1) { transform: rotate(0deg) translateY(-20px); }
+        .lotus-petal:nth-child(2) { transform: rotate(45deg) translateY(-20px); }
+        .lotus-petal:nth-child(3) { transform: rotate(90deg) translateY(-20px); }
+        .lotus-petal:nth-child(4) { transform: rotate(135deg) translateY(-20px); }
+        .lotus-petal:nth-child(5) { transform: rotate(180deg) translateY(-20px); }
+        .lotus-petal:nth-child(6) { transform: rotate(225deg) translateY(-20px); }
+        .lotus-petal:nth-child(7) { transform: rotate(270deg) translateY(-20px); }
+        .lotus-petal:nth-child(8) { transform: rotate(315deg) translateY(-20px); }
+        
+        .lotus-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #ffd700, #ff69b4);
+            border-radius: 50%;
+            z-index: 2;
+        }
+        
+        /* Letter Content */
+        .letter {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 192, 203, 0.3);
+            animation: fadeInUp 2s ease-out 0.5s both;
+            margin-bottom: 30px;
+        }
+        
+        .letter p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2c1810;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .letter .greeting {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #8b1538;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .letter .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #8b1538;
+            text-align: right;
+            margin-top: 30px;
+        }
+        
+        /* Heart Animation */
+        .heart {
+            display: inline-block;
+            color: #ff1493;
+            animation: heartbeat 2s ease-in-out infinite;
+            margin: 0 5px;
+        }
+        
+        @keyframes heartbeat {
+            0%, 50%, 100% { transform: scale(1); }
+            25%, 75% { transform: scale(1.2); }
+        }
+        
+        /* Fade In Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Special Text Effects */
+        .highlight {
+            background: linear-gradient(120deg, transparent 0%, #ff69b4 0%, #ff69b4 100%, transparent 100%);
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            transition: background-size 0.6s ease;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        .letter:hover .highlight {
+            background-size: 100% 100%;
+            color: white;
+        }
+        
+        /* Footer Decoration */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            animation: fadeInUp 2s ease-out 1s both;
+        }
+        
+        .footer-lotus {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            opacity: 0.6;
+        }
+        
+        .mini-lotus {
+            width: 15px;
+            height: 15px;
+            background: #ff69b4;
+            border-radius: 50% 30%;
+            transform: rotate(45deg);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .letter {
+                padding: 25px;
+            }
+            
+            .letter p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Interactive Effects */
+        .letter:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        /* Background Lotus Pattern */
+        .bg-lotus {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, #ff69b4 2px, transparent 2px),
+                radial-gradient(circle at 80% 80%, #ff1493 2px, transparent 2px),
+                radial-gradient(circle at 40% 60%, #da70d6 2px, transparent 2px);
+            background-size: 50px 50px, 70px 70px, 90px 90px;
+            animation: bgMove 20s linear infinite;
+        }
+        
+        @keyframes bgMove {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-50px) translateY(-50px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Pattern -->
+    <div class="bg-lotus"></div>
+    
+    <!-- Floating Petals -->
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Untuk Leona</h1>
+            <p class="subtitle">Surat dari Hati yang Terdalam</p>
+        </div>
+        
+        <!-- Lotus Decoration -->
+        <div class="lotus-container">
+            <div class="lotus">
+                <div class="lotus-petal"></div>
+                <div class="lotus-petal"></div>
+                <div class="lotus-petal"></div>
+                <div class="lotus-petal"></div>
+                <div class="lotus-petal"></div>
+                <div class="lotus-petal"></div>
+                <div class="lotus-petal"></div>
+                <div class="lotus-petal"></div>
+                <div class="lotus-center"></div>
+            </div>
+        </div>
+        
+        <!-- Love Letter -->
+        <div class="letter">
+            <div class="greeting">Leona Tersayang,</div>
+            
+            <p>
+                Seperti <span class="highlight">bunga lotus yang tumbuh dari lumpur</span> namun tetap suci dan indah, 
+                begitulah cintaku padamu yang tumbuh dari kedalaman hati dan menjadi sesuatu yang murni dan abadi.
+            </p>
+            
+            <p>
+                Setiap hari bersamamu adalah <span class="highlight">anugerah yang tak ternilai</span>. 
+                Senyummu bagaikan cahaya matahari pagi yang menerangi hari-hariku, 
+                dan tawamu adalah melodi terindah yang pernah kudengar.
+            </p>
+            
+            <p>
+                Kau adalah <span class="highlight">lotus di taman hatiku</span> <span class="heart">♥</span>, 
+                yang mekar dengan sempurna dan mengharumkan seluruh kehidupanku. 
+                Dalam pelukanmu, aku menemukan kedamaian yang selama ini kucari.
+            </p>
+            
+            <p>
+                Leona, <span class="highlight">cintaku padamu</span> tidak akan pernah layu, 
+                seperti lotus yang selalu mekar indah di setiap musim. 
+                Kau adalah inspirasi, motivasi, dan alasan mengapa aku ingin menjadi pribadi yang lebih baik setiap harinya.
+            </p>
+            
+            <p>
+                Terima kasih telah <span class="highlight">menjadi bagian terpenting dalam hidupku</span>. 
+                Bersamamu, aku percaya bahwa kita bisa melewati segala hal dan menciptakan cerita cinta yang indah.
+            </p>
+            
+            <div class="signature">
+                Dengan segenap cinta,<br>
+                Kekasihmu <span class="heart">♥</span>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-lotus">
+                <div class="mini-lotus"></div>
+                <span style="font-family: 'Dancing Script', cursive; color: #8b1538; font-size: 1.1rem;">
+                    Cinta Abadi Seperti Lotus yang Mekar
+                </span>
+                <div class="mini-lotus"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Add some interactive sparkle effect on click
+        document.addEventListener('click', function(e) {
+            createSparkle(e.clientX, e.clientY);
+        });
+        
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.width = '10px';
+            sparkle.style.height = '10px';
+            sparkle.style.background = '#ff69b4';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '1000';
+            sparkle.style.animation = 'sparkleAnim 1s ease-out forwards';
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+        
+        // Add sparkle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkleAnim {
+                0% {
+                    transform: scale(0) rotate(0deg);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(1) rotate(180deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(0) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Add gentle sway animation to the main lotus
+        const lotus = document.querySelector('.lotus');
+        let angle = 0;
+        
+        function swayLotus() {
+            angle += 0.02;
+            const sway = Math.sin(angle) * 3;
+            lotus.style.transform = `rotate(45deg) rotate(${sway}deg)`;
+            requestAnimationFrame(swayLotus);
+        }
+        
+        swayLotus();
+    </script>
+</body>
+</html>
